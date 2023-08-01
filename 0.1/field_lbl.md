@@ -1,4 +1,4 @@
-##1 LBL - Label ([>tag:fields](Fields))
+## 1 LBL - Label ([>tag:fields](Fields))
 
 Texto del prompt del campo y texto de la cabecera en un listado.
 
