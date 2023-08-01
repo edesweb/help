@@ -1,4 +1,0 @@
-
-* LANG
-    * [Español](/)
-    * [English](/en/)
