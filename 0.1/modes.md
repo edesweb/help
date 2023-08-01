@@ -1,4 +1,4 @@
-# Modos
+# Modosxxx
 
 Definimos modo a la forma de interpretar un script de Goblin.
 
