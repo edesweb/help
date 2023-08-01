@@ -1,25 +1,23 @@
-### [DBOrder]
+##DBOrder
 
-`[DBOrder] fieldList`
+**[DBOrder] Field [DESC] [, Field [DESC]] ... [, Field [DESC]]  **
 
-Indica la ordenación (ORDER BY) de los datos en un listado.
-
-#### fieldList
-
-Lista de campos separados por coma.
-
-Al tratarse del ORDER BY de una SELECT, podemos indicar el orden ascendente o descendente de cada campo.
+En un listado, indica la ordenación de los datos a mostrar.
 
 
-ejemplo
-```
-[DBTable] usuario
-[DBSerial] cd_usuario
-[DBOrder] nm_usuario
-```
+- - -
+####Parámetros
+
+**Field [DESC]**: nombre de un campo de la tabla. DESC, para invertir el orden.
+
+- - -
+####Ejemplos
 
 ```
-[DBTable] usuario
-[DBSerial] cd_usuario
-[DBOrder] dt_add desc, nm_usuario
+[DBOrder] nm_auto
+
+[DBOrder] nm_auto DESC
+
 ```
+
+>Esta etiqueta establece la variable global $_DBORDER para su posible utilización posterior.

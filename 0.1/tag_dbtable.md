@@ -1,12 +1,7 @@
-### [DBTable]
+##DBTable
 
-`[DBTable] tablename`
+**[DBTable] nombre_tabla**
 
-Indica el nombre de la tabla de la BBDD que se va a utilizar en el formulario o listado.
+Nombre de la tabla de la base de datos a utilizar.
 
-Sólo se permite una etiqueta [DBTable] por script.
-
-Ejemplo
-```
-[DBTable] usuarios
-```
+>El nombre de la tabla se almacena en la variable global **$_DBTABLE** para su posible uso posterior.

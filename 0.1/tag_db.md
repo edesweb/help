@@ -1,106 +1,30 @@
-### [DB] - Database
+##DB
 
-[[DB] ini_filename [ | alias ]](#db-ini_filename-alias-)  
-[[DB] php_filename [ | alias ]](#db-php_filename-alias-)  
-[[DB] config_db_id [ | alias ]](#db-config_db_id-alias-)
+**[DB] sql_ini_file **
 
+Indica que deseamos utilizar otro controlador u otra base de datos distinta a la actual, deberemos proporcionar un archivo PHP que contenga la inicialización de variables adecuadas para la conexión a la base de datos.
 
+La lógica de esta etiqueta es la siguiente:
 
-Declaración de la base de datos a utilizar.
+- primero comprueba que el archivo indicado exista en el path actual, si exite realiza una inclusión del mismo,
+- si no existe en el path actual, trata de encontrarlo en el path de configuración del sistema (variable global **WEPE_CONFIG_PATH**) y realiza una inclusión,
+- por último, si no lo encuentra, el sistema se detiene reportando un error.
 
-Con el parámetro opcional `alias` asignamos un alias a la base de datos que estamos definiendo.
+El archivo PHP debe contener por lo menos las siguientes variables establecidas:
 
-A continuación se detallan las diferentes opciones de configuración.
-
-
-### [DB] ini_filename [ | alias ]
-
-Archivo que contiene los datos de acceso a una base de datos.
-
-Ejemplo:
-```
-[DB] ../config/mysql_b.ini
-
-Contenido de mysql_b.ini
-engine  = mysql
-host    = localhost
-db      = midatabase
-user    = root
-pass    = xxxx
-init    =
-dateformat = D5 ; Picture format to save dates in database
-```
-
-```
-[DB] ../config/mysql_a.ini
-
-Contenido de mysql_a.ini
-db_by_host=yes
-
-[mytenant.com]
-engine  = mysql
-host    = 172.16.16.01
-db      = mydatabase
-user    = userdb
-pass    = xxxxxx
-init    =
-dateformat = D5 ; Picture format to save dates in database
-
-[localhost]
-engine  = mysql
-host    = localhost
-db      = mydatabase
-user    = userdb
-pass    = xxxxxx
-init    =
-dateformat = D5 ; Picture format to save dates in database
-```
-En esta definición de mysql_a.ini tenemos la clave `db_by_host`, si su valor es "yes" o "true" el sistema obtendrá la variable `$_SERVER['HTTP_HOST']` y esa será la *sección* que escoja para obtener los parámetros.
-
-En el ejemplo anterior, si `$_SERVER['HTTP_HOST']` contiene "mytenant.com", entonces los datos de acceso a la base de datos serán los de la sección `[mytenant.com]`.
+- **_Sql** tipo de base de datos (mysql,informix,oracle,...)
+- **_SqlHostName** 
+- **_SqlUsuario**
+- **_SqlPassword**
+- **_SqlDiccionario** 
+- **_SqlInit** array de sentencias sql a ejecutar justo después de la conexión a la base de datos
 
 
-### [DB] php_filename [ | alias ]
+A continuación el sistema trata de realizar una conexión con los parámetros dados, si tiene éxito, estarán disponibles las siguientes propiedades de clase:
 
-Archivo PHP con los datos de configuración de acceso a la BBDD.
+- **$this->_DB_RESOURCES[ sql_ini_file ]['options']** opciones de conexión a la base de datos
+- **$this->_DB_RESOURCES[ sql_ini_file ]['handler']** puntero a la instancia de la clase qPDO (para los controladores que admiten PDO)
 
-El script debe declarar el array **$dbData** como se indica en el ejemplo:
-```
-[DB] ../config/mysql_a.php
 
-Contenido de mysql_a.php
-
-$dbData=[
-    'engine'=> 'mysql',
-    'host'  => 'localhost',
-    'db'    => 'vcard',
-    'user'  => 'root',
-    'pass'  => 'xxxxx',
-    'init'  => '',
-    'dateformat' => 'D5' // Picture format to save dates in database
-];
-```
-
-### [DB] config_db_id [ | alias ]
-
-Identificador de base de datos definido en el archivo de configuración global **[config.ini](config.ini.md)**
-
-En la sección [db] de config.ini se define entre otras cosas los archivos de configuración de bases de datos.
-
-Por ejemplo
-```
-...config.ini...
-[db]
-	mysqla	= "../config/mysqla.ini"
-	mysqlb	= "../config/mysqlb.php"
-	dblimit_maxrec = 500
-```
-De tal forma que podríamos indicar "mysqla" o "mysqlb" en la etiqueta [DB]:
-```
-[DB] mysqla
-```
-```
-[DB] mysqlb
-```
 
 

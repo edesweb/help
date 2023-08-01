@@ -1,56 +1,83 @@
-### [DefAux] - Definición de la relación entre un campo y una tabla para un *Select*
+##DefAux
 
-**[DefAux]** field | relation_table, field_to_save, fields_to_show | where | order_by
+**[DefAux]** Field | RelationTable, FieldToSave, FieldToShow [ | orderby ]
 
-Esta etiqueta está relacionada con la [columna CTL de Fields](tag_fields_3_ctl.md) cuando queremos presentar un [*Select*](tag_radio.md@s-select) al usuario.
+Con esta etiqueta definimos la composición de un campo tipo [>tag:field_ctl](Select), es decir, qué se muestra en el desplegable y qué dato se graba en el campo Fields.
+Llevado a HTML sería la forma de definir las etiquetas OPTION de un SELECT de una forma automática desde una tabla de la base de datos.
 
-Indicando un campo de [Fields], nos permite relacionarlo con otra tabla para rellenar los datos de un *Select*. 
+Esta etiqueta puede funcionar conjuntamente con [>tag:whereselect]([WhereSelect]) para filtrar los datos que se muestran en el desplegable.
 
-#### field
+- - -
 
-Campo que queremos relacionar.
+####Parámetros
 
-#### relation_table
+**Field**:
+	Campo de la etiqueta [>tag:fields](Fields)
 
-Tabla a relacionar.
+**RelationTable**:
+	Tabla que contiene los datos.
+    
+**FieldToSave**:
+	Campo de la tabla *RelationTable* que se va a almacenar en el campo *Field*
+    
+**FieldToShow**:
+	Campo o campos de la tabla *RelationTable* a mostrar en el desplegable del Select.
+    Si deseamos mostrar más de un campo simplemente los separaremos con comas.
+    
+**orderby**:
+	Orden que deseamos en el select. Pondremos el campo o campos de la tabla *RelationTable* con la misma sintáxis que la cláusula WHERE de SQL. Si se omite este parámetro no se hará ninguna ordenación.
 
-#### field_to_save
+- - -
 
-Campo de la tabla *relation_table* a grabar en la tabla definida en [[DBTable]](tag_dbtable.md) a la que pertenece el campo *field*.
+####Ejemplos
 
-#### fields_to_show
-
-Campo o campos a mostrar en el *Select*.  
-Si queremos poner más de un campo los separaremos teniendo en cuenta la función *CONCAT* de SQL, realmente el sistema hará un CONCAT de este parámetro.
-
-Ejemplo:
 ```
-[DefAux] cd_user | user, cd_user, user_name,' ',user_surname
-
-El sistema entenderá:
-select cd_user, CONCAT(user_name,' ',user_surname) from user
-```
-
-#### where
-
-Filtro a añadir a la búsqueda.
-
-Ejemplo:
-```
-[DefAux] cd_user | user, cd_user, user_name,' ',user_surname | is_active=1
-
-El sistema entenderá:
-select cd_user, CONCAT(user_name,' ',user_surname) from user where is_active=1
+[DBTable] personas
+[DefAux] cd_pais | paises, cd_pais, nm_pais | nm_pais
+[Fields]
+    País	| cd_pais_persona	| 0 | S  | 2	|    | M   |	|     | 
 ```
 
-#### order_by
+En el ejemplo tenemos un listado o una ficha de la tabla *personas*, esta tabla tiene un campo llamado *cd_pais_persona* en el cual deseamos grabar el código del país.
 
-Ordenación a utilizar.
+Por otro lado disponemos de la tabla *paises*, esta tabla contiene dos campos:
+- cd_pais
+- nm_pais
 
-Ejemplo:
+En *Fields* hemos definido el campo *cd_pais_persona* como un tipo de control *S* para que muestre un select al usuario.
+
+En la etiqueta *DefAux* le estamos indicando que monte un desplegable con los datos de la tabla **paises**, mostrando el nombre del país (**nm_pais**) y grabando en el campo *cd_pais_persona* el dato **cd_pais**.
+
+Realmente lo que hace *WEPEDES* es montar la siguiente sentencia SQL para generar el tipo de control [>tag:field_ctl](Select):
+
+	SELECT cd_pais, nm_pais FROM paises ORDER BY nm_pais
+
+
+- - -
 ```
-[DefAux] cd_user | user, cd_user, user_name,' ',user_surname |  | user_name DESC, user_surname
-
-El sistema entenderá:
-select cd_user, CONCAT(user_name,' ',user_surname) from user order by user_name DESC, user_surname
+[DBTable] clientes
+[DefAux] cd_comercial | comerciales, cd_comercial, apellidos,', ',nombre | apellidos, nombre
+[WhereSelect] a, mR | cd_comercial | edad_comercial>30
+[Fields]
+    Comercial asignado	| cd_comercial	| 0 | S  | 4	|    | M   |	|     | 
 ```
+
+Este ejemplo es similar al anterior, solo que además queremos visualizar en el select los apellidos y nombre del comercial y sólo mostrar los comerciales que tengan más de 30 años.
+
+El SQL que montaría *WEPEDES* sería:
+
+	SELECT cd_comercial, CONCAT(apellidos,', ',nombre) FROM comerciales WHERE edad_comercial>30 ORDER BY apellidos, nombre
+
+- - -
+```
+[DefAux] cd_gs_user | gs_user,cd_gs_user,user_name,' ',user_surname
+
+[Fields]
+	Propietario	| cd_gs_user	| 0 | S | 5 |	| - | $_SESSION['_User'] |   | 
+
+```
+En este ejemplo definimos un campo tipo Select pero sólo de lectura ("-") con un valor por defecto y en el *DefAux* definimos qué deseamos mostrar.
+
+
+
+

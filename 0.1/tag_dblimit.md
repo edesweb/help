@@ -1,16 +1,25 @@
-### [DBLimit]
+##DBLimit
 
-`[DBLimit] maxrec | pagerec`
+**[DBLimit] records_per_page, extended_load **
 
-En los listados indica el máximo número de registros a mostrar así como el número de registros por página.
+Un listado muestra por defecto una cantidad de registros que está establecida en el archivo de [>tag:settings_ini](configuración), si hay más registros para mostrar se presentan -al final del listado- dos botones para permitir al usuario que cargue más registros, el primer botón carga la siguiente página de registros y el segundo botón carga una cantidad más elevada -**carga ampliada**- de registros. Con esta etiqueta podemos modificar los valores por defecto establecidos en el archivo de configuración.
 
 
-#### maxrec
+- - -
+####Parámetros
 
-Número máximo de registros por página.
+**records_per_page**: número de registros por página, es el número de registros a cargar cada vez que el usuario pulsa el botón "*cargar más*".
 
-Si no se indica o esta etiqueta no está presente en el script, se tomará como número máximo de registros el indicado en `dblimit_maxrec` en [config.ini](config.ini.md#db). 
+**extended_load**: número de registros para la *carga ampliada*.
 
-#### pagrec
+- - -
+####Ejemplos
 
-Número de registros por página.
+```
+[DBLimit] 15, 500
+
+Establece 15 registros por página y hasta 500 registros en la carga ampliada.
+
+```
+
+>En el [>tag:settings_ini](settings.ini) *records_per_page* se corresponde con la variable *brwNumRecords* y *extended_load* se corresponde con *brwMaxRec*.
