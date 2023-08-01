@@ -12,6 +12,7 @@ Mostrar al usuario un mensaje de confirmación antes de realizar el submit de un
 
 **js_condition**: Condición javascript a cumplir para que se muestre el mensaje.
 
+![1690904272538](image/tag_msgsubmit/1690904272538.png)
 
 ---
 
