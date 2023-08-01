@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>gobpic</title>
+  <link rel="stylesheet" href="gobpic.css" type="text/css" media="all">
+<style type="text/css">
+  
+
+
+#tab-N:checked ~ .tabs #tab-N-label,
+#tab-S:checked ~ .tabs #tab-S-label,
+#tab-D:checked ~ .tabs #tab-D-label,
+#tab-T:checked ~ .tabs #tab-T-label,
+#tab-I:checked ~ .tabs #tab-I-label,
+#tab-P:checked ~ .tabs #tab-P-label
+{
+    background-color: #bee7be;
+    cursor: default;
+    -border-left-color: #69be28;
+}
+
+#tab-N:checked ~ .tabs #tab-N-panel,
+#tab-S:checked ~ .tabs #tab-S-panel,
+#tab-D:checked ~ .tabs #tab-D-panel,
+#tab-T:checked ~ .tabs #tab-T-panel,
+#tab-I:checked ~ .tabs #tab-I-panel,
+#tab-P:checked ~ .tabs #tab-P-panel {
+  display: block;
+}
+
+
+
+.samples{
+    border: 1px solid #777;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    background-color: #45f778;
+    font-weight: bold;
+}
+.samples-select{
+    width: 50%;
+    font-weight: bold;
+}
+.param{
+    width: 97%;
+}
+.theform{
+  width: 100%;
+}
+.theform tbody tr td:nth-child(3){
+    white-space: nowrap;
+}
+.theform tbody tr td:nth-child(4){
+    text-align: center;
+}
+.theform tbody tr td:nth-child(5){
+    -text-align: center;
+}
+.theform tbody tr td:nth-child(6),
+.theform tbody tr td:nth-child(6) *{
+    font-size: .9rem;
+}
+
+.form-control{
+  width: 100%;
+}
+
+.form-field{
+    width:100%;
+    margin-bottom: 5px;
+    background-color: #bee7be;
+}
+.form-field td:nth-child(1){
+    width: 1%;
+    text-align: right;
+}
+
+.span_val{
+    border:1px solid #999;
+    width:100%;
+	text-align: left;
+	padding-left:30px;
+}
+
+.span_picture{
+	font-weight: bold;
+}
+
+.tainfo_container{
+    position: relative;
+    bottom:5px;
+    padding:10px;
+}
+.tainfo{
+    width: 100%;
+    font-family: monospace;
+    min-height: 200px;
+    background-color: #000;
+    color:#45f778;
+}
+button{
+	border-radius: 5px;
+	border: 1px solid #999;
+	font-family: monospace;
+	font-size: smaller;
+	float:left;
+	cursor: pointer;
+}
+.showButtons{
+	white-space: nowrap;
+}
+
+</style>
+</head>
+<body onload="init()">
+  
+<div class="responsive-tabs">
+
+    <h2>Picture tester</h2>
+
+    <div class="samples">
+        <label>EJEMPLOS</label>
+        <select id="samples" onchange="sampleChanged(this.value)" class="samples-select"></select>
+    </div>
+  
+  <input class="state" type="radio" title="tab-N" name="tabs-state" id="tab-N"/>
+  <input class="state" type="radio" title="tab-S" name="tabs-state" id="tab-S"/>
+  <input class="state" type="radio" title="tab-D" name="tabs-state" id="tab-D"/>
+  <input class="state" type="radio" title="tab-T" name="tabs-state" id="tab-T"/>
+  <input class="state" type="radio" title="tab-I" name="tabs-state" id="tab-I"/>
+  <input class="state" type="radio" title="tab-P" name="tabs-state" id="tab-P"/>
+
+  <div class="tabs flex-tabs">
+
+    <label for="tab-N" id="tab-N-label" class="tab">
+        <i class="fa-solid fa-arrow-down-1-9"></i>
+        <span>PICTURE N - NUMBER</span>
+    </label>
+    <label for="tab-S" id="tab-S-label" class="tab">
+        <i class="fa-solid fa-text-height"></i>
+        <span>PICTURE S - STRING</span>
+    </label>
+    <label for="tab-D" id="tab-D-label" class="tab">
+        <i class="fa-solid fa-calendar-days"></i>
+        <span>PICTURE D - DATE</span>
+    </label>
+    <label for="tab-T" id="tab-T-label" class="tab">
+        <i class="fa-solid fa-clock"></i>
+        <span>PICTURE T - TIME</span>
+    </label>
+<!--
+    <label for="tab-I" id="tab-I-label" class="tab">
+        <i class="fa-solid fa-calendar-plus"></i>
+        <span>PICTURE I - DATETIME</span>
+    </label>
+-->	
+    <label for="tab-P" id="tab-P-label" class="tab">
+        <i class="fa-solid fa-hashtag"></i>
+        <span>PICTURE P - PATTERN</span>
+    </label>
+
+
+
+
+
+    <!-- PANEL N   NUMBER -->
+    <div id="tab-N-panel" class="panel active">
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_N"></span></td>
+				</tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "text"
+                            id      = "field_N" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = "123456">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="SPAN_VAL_N" class="span_val"></div></td>
+                </tr>
+				<tr>
+                    <td colspan="2" class="showButtons">
+						<button onclick="show('val','N')">val() - real internal value</button>
+						<button onclick="show('value','N')">.value on screen</button>
+						<button onclick="show('format','N')">format()</button>
+                        <button onclick="show('isvalid','N')">isvalid()</button>
+						<button onclick="show('isempty','N')">isempty()</button>
+                    </td>					
+				</tr>
+
+            </table>
+
+            <form id="formu_N">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>CURRENCY</td><td><input type="text" id="CURRENCY" class="param"></td>
+                            <td>[$€£¥%]?|(~.{1,10}~)?</td>
+                            <td></td>
+                            <td>Carácter de la moneda (ejemplo: ~ EUR~ )</td>
+                        </tr>
+                        <tr><td>CURRENCY_POS</td><td>
+                                <select id="CURRENCY_POS" class="param">
+                                    <option value=""></option>
+                                    <option value="<"><</option>
+                                    <option value=">">></option>
+                                </select>
+                            </td>
+                            <td>\<|\>?</td>
+                            <td><</td>
+                            <td>Posición de CURRENCY (<)izquierda (>)derecha </td>
+                        </tr>
+                        <tr><td>THOUSANDS_SEP</td><td>
+                                <select id="THOUSANDS_SEP" class="param">
+                                    <option value=""></option>
+                                    <option value=",">,</option>
+                                    <option value=".">.</option>
+                                    <option value="_">_</option>
+                                </select>
+                            </td>
+                            <td>[,\._]?</td>
+                            <td></td>
+                            <td>Carácter separador de miles</td>
+                        </tr>
+                        <tr><td>SIGN</td><td>
+                                <select id="SIGN" class="param">
+                                    <option value=""></option>
+                                    <option value="-">-</option>
+                                    <option value="+">+</option>
+                                    <option value="[">[</option>
+                                    <option value="(">(</option>
+                                </select>
+                            </td>
+                            <td>[\[\(+-]?</td>
+                            <td>-</td>
+                            <td>
+                                El signo + indica que sólo permite números positivos. Los carácteres [ ó ( harán que el número se encierre entre corchetes o paréntesis cuando sea negativo.
+                            </td>
+                        </tr>
+                        <tr><td>SIGN_POS</td><td>
+                                <select id="SIGN_POS" class="param">
+                                    <option value=""></option>
+                                    <option value="<"><</option>
+                                    <option value=">">></option>
+                                </select>
+                            </td>
+                            <td>\<|\>?</td>
+                            <td><</td>
+                            <td>Posición del signo menos (<)izquierda (>)derecha</td>
+                        </tr>
+                        <tr><td>FILL</td><td>
+                                <select id="FILL" class="param">
+                                    <option value=""></option>
+                                    <option value="0">0</option>
+                                    <option value="_">_</option>
+                                    <option value="*">*</option>
+                                </select>
+                            </td>
+                            <td>[0_\*]?</td>
+                            <td></td>
+                            <td>Relleno por la izquierda del carácter indicado hasta rellenar el SIZE</td>
+                        </tr>
+                        <tr><td>SIZE</td><td><input type="number" id="SIZE" class="param"></td>
+                            <td>[0-9]{1,}</td>
+                            <td></td>
+                            <td>Tamaño de posiciones del número incluyendo los decimales</td>
+                        </tr>
+                        <tr><td>DECIMALS_SEP</td><td>
+                                <select id="DECIMALS_SEP" class="param">
+                                    <option value=""></option>
+                                    <option value=",">,</option>
+                                    <option value=".">.</option>
+                                    <option value="_">_</option>
+                                </select>
+                            </td>
+                            <td>[,\._]?</td>
+                            <td></td>
+                            <td>Carácter separador de los decimales</td>
+                        </tr>
+                        <tr><td>DECIMALS</td><td><input type="number" id="DECIMALS" class="param"></td>
+                            <td>[0-9]*</td>
+                            <td>0</td>
+                            <td>Número de posiciones decimales</td>
+                        </tr>
+                        <tr><td>BLANK_IF_ZERO</td><td>
+                                <select id="BLANK_IF_ZERO" class="param">
+                                    <option value=""></option>
+                                    <option value="B">B</option>
+                                </select>
+                            </td>
+                            <td>B?</td>
+                            <td></td>
+                            <td>Si el número es cero, dejarlo en blanco</td>
+                        </tr>
+                        <tr><td>ALIGN</td><td>
+                                <select id="ALIGN" class="param">
+                                    <option value=""></option>
+                                    <option value="L">L</option>
+                                    <option value="C">C</option>
+                                    <option value="R">R</option>
+                                </select>
+                            </td>
+                            <td>[LCR]?</td>
+                            <td>R</td>
+                            <td>Alineamiento del texto cuando se edita (L)left (C)center (R)right</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+    </div>
+
+
+
+    <!-- PANEL S  STRING -->
+    <div id="tab-S-panel" class="panel">
+
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_S"></span></td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "text"
+                            id      = "field_S" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = "abcd">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="SPAN_VAL_S" class="span_val"></div></td>
+                </tr>
+				<tr>
+					<td colspan="2" class="showButtons">
+						<button onclick="show('val','S')">val()</button>
+						<button onclick="show('value','S')">value</button>
+						<button onclick="show('format','S')">format()</button>
+						<button onclick="show('isvalid','S')">isvalid()</button>
+						<button onclick="show('isempty','S')">isempty()</button>
+					</td>				
+				</tr>
+            </table>
+
+            <form id="formu_S">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>SIZE</td><td><input type="number" id="SIZE" class="param"></td>
+                            <td>[0-9]{1,}</td>
+                            <td></td>
+                            <td>Tamaño de posiciones del número incluyendo los decimales</td>
+                        </tr>
+                        <tr><td>CASE</td><td>
+                                <select id="CASE" class="param">
+                                    <option value=""></option>
+                                    <option value="U">U</option>
+                                    <option value="L">L</option>
+                                    <option value="C">C</option>
+                                    <option value="A">A</option>
+                                </select>
+                            </td>
+                            <td>[ ULCA]?</td>
+                            <td></td>
+                            <td>Convertir texto a (U)uppercase (L)lowercase (C)capitalize first (A)capitalize all</td>
+                        </tr>
+                        <tr><td>REAC</td><td><input type="text" id="REAC" class="param" tilde="1"></td>
+                            <td>Expresión regular - Allowed Chars</td>
+                            <td></td><td></td>
+                        </tr>
+                        <tr><td>REVA</td><td><input type="text" id="REVA" class="param" tilde="1"></td>
+                            <td>Expresión regular - Validation on change</td>
+                            <td></td><td></td>
+                        </tr>
+                        <tr><td>RETY</td><td><input type="text" id="RETY" class="param" tilde="1"></td>
+                            <td>Expresión regular - Typing Allowed Chars</td>
+                            <td></td><td></td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </form>
+    </div>
+
+
+
+
+    <!-- PANEL D  DATE -->
+    <div id="tab-D-panel" class="panel">
+
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_D"></span></td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "date"
+                            id      = "field_D" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = "">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="SPAN_VAL_D" class="span_val"></div></td>
+                </tr>
+				<tr>
+                    <td colspan="2" class="showButtons">
+						<button onclick="show('val','D')">val()</button>
+						<button onclick="show('value','D')">value</button>
+						<button onclick="show('format','D')">format()</button>
+                        <button onclick="show('isvalid','D')">isvalid()</button>
+						<button onclick="show('isempty','D')">isempty()</button>
+                    </td>
+				</tr>
+            </table>
+
+            <form id="formu_D">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FORMAT</td><td><input type="text" id="FORMAT" class="param"></td>
+                            <td>[0-9]+|.+</td>
+                            <td></td>
+                            <td>Identificador del formato:<br>
+								<ul>
+									<li>1 - d/m/Y</li>
+									<li>2 - d/m/y</li>
+									<li>3 - m/d/Y</li>
+									<li>4 - m/d/y</li>
+									<li>5 - Y/m/d</li>
+									<li>6 - Y/d/m</li>
+								</ul>
+							</td>
+                        </tr>
+                        <tr><td>SEPARATOR</td><td>
+                                <select id="SEPARATOR" class="param">
+                                    <option value=""></option>
+                                    <option value="/">/</option>
+                                    <option value=",">,</option>
+                                    <option value="-">-</option>
+                                    <option value=".">.</option>
+                                    <option value="_">_</option>
+                                </select>
+                            </td>
+                            <td>[\/,\-\.\_]?</td>
+                            <td>/</td>
+                            <td>Carácter separador de día, mes y año. (_) indica un espacio en blanco
+                        </tr>
+                    </tbody>
+                  </table>
+            </form>
+    </div>
+
+
+
+
+    <!-- PANEL T  TIME -->
+
+    <div id="tab-T-panel" class="panel">
+
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_T"></span></td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "time"
+                            id      = "field_T" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = "">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="SPAN_VAL_T" class="span_val"></div></td>
+                </tr>
+				<tr>
+					<td colspan="2" class="showButtons">
+						<button onclick="show('val','T')">val()</button>
+						<button onclick="show('value','T')">value</button>
+						<button onclick="show('format','T')">format()</button>
+                        <button onclick="show('isvalid','T')">isvalid()</button>
+						<button onclick="show('isempty','T')">isempty()</button>
+                    </td>
+				</tr>
+            </table>
+
+            <form id="formu_T">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FORMAT</td><td><input type="text" id="FORMAT" class="param"></td>
+                            <td>[0-9]+|.+</td>
+                            <td></td>
+                            <td>Identificador del formato
+                        </tr>
+                        <tr><td>SEPARATOR</td><td>
+                                <select id="SEPARATOR" class="param">
+                                    <option value=""></option>
+                                    <option value=":">:</option>
+                                    <option value=",">,</option>
+                                    <option value="-">-</option>
+                                    <option value=".">.</option>
+                                    <option value="_">_</option>
+                                </select>
+                            </td>
+                            <td>[:,\-\.\_]?</td>
+                            <td>:</td>
+                            <td>Carácter separador de horas, minutos y segundos. (_) indica un espacio en blanco
+                        </tr>
+                    </tbody>
+                  </table>
+            </form>
+    </div>
+
+
+
+    <!-- PANEL I  DATETIME -->
+    <div id="tab-I-panel" class="panel">
+
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_I"></span></td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "datetime-local"
+                            id      = "field_I" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = "">
+                    </td>
+                </tr>
+                <tr>
+                    <td  colspan="2"><div id="SPAN_VAL_I" class="span_val"></div></td>
+                </tr>
+				<tr>
+                    <td colspan="2" class="showButtons">
+						<button onclick="show('val','I')">val()</button>
+						<button onclick="show('value','I')">value</button>
+						<button onclick="show('format','I')">format()</button>
+                        <button onclick="show('isvalid','I')">isvalid()</button>
+						<button onclick="show('isempty','I')">isempty()</button>
+                    </td>
+				</tr>
+            </table>
+
+            <form id="formu_I">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FORMAT</td><td><input type="text" id="FORMAT" class="param"></td>
+                            <td>[0-9]+|.+</td>
+                            <td></td>
+                            <td>Identificador del formato
+                        </tr>
+                        <tr><td>SEPARATOR</td><td>
+                                <select id="SEPARATOR" class="param">
+                                    <option value=""></option>
+                                    <option value=":">:</option>
+                                    <option value=",">,</option>
+                                    <option value="-">-</option>
+                                    <option value=".">.</option>
+                                    <option value="_">_</option>
+                                </select>
+                            </td>
+                            <td>[:,\-\.\_]?</td>
+                            <td>:</td>
+                            <td>Carácter separador de horas, minutos y segundos. (_) indica un espacio en blanco
+                        </tr>
+                    </tbody>
+                  </table>
+            </form>
+    </div>
+
+
+
+
+
+    <!-- PANEL P  PATTERN -->
+    <div id="tab-P-panel" class="panel">
+
+            <table class="form-field">
+                <tr>
+                    <td>PICTURE</td>
+                    <td class="span_picture"><span id="SPAN_PICTURE_P"></span></td>
+                </tr>
+                <tr>
+                    <td>TEST</td>
+                    <td>
+                        <input 
+                            type    = "text"
+                            id      = "field_P" 
+                            class   = "form-control"
+                            pic     = ""
+                            value   = ""
+                            style="width: 80%;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="SPAN_VAL_P" class="span_val"></div></td>
+                </tr>
+				<tr>
+                    <td colspan="2" class="showButtons">
+						<button onclick="show('val','P')">val()</button>
+						<button onclick="show('value','P')">value</button>
+						<button onclick="show('format','P')">format()</button>
+						<button onclick="show('deformat','P')">deformat()</button>
+                        <button onclick="show('isvalid','P')">isvalid()</button>
+						<button onclick="show('isempty','P')">isempty()</button>
+                    </td>
+				</tr>
+            </table>
+
+            <form id="formu_P">
+                <table class="theform" cellpadding="2" cellspacing="2">
+                    <colgroup>
+                        <col span="2" style="background-color: #BBB;">
+                        <col          style="background-color: #CCC;">
+                        <col          style="background-color: #DDD;">
+                        <col          style="background-color: #EEE;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARÁMETRO</th>
+                            <th>POSIBLES VALORES</th>
+                            <th>VALOR POR DEFECTO</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FORMAT</td><td><input type="text" id="FORMAT" class="param"></td>
+                            <td>(?<VAR>[^~])|(?<CONST>(~[^~]*~))</td>
+                            <td></td>
+                            <td>Identificador del formato. Utilize:<br>
+								<ul>
+									<li>&lt; - para números 0-9 o un espacio</li>
+									<li># - para números 0-9</li>
+									<li>a - un carácter a-z</li>
+									<li>â - un carácter a-z o un espacio</li>
+									<li>A - un carácter A-Z</li>
+									<li>Â - un carácter A-Z o un espacio</li>
+									<li>* - cualquier carácter</li>
+									<li>~.*~ - cualquier carácter entre ~~ lo mostrará sin ser editable</li>
+								</ul>
+							</td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </form>
+    </div>
+
+
+
+
+  </div>
+
+</div>
+
+
+<div class="tainfo_container">
+    <textarea id="tainfo" class="tainfo" readonly></textarea>
+</div>
+
+</body>
+
+<script type="text/javascript" src="goblin.pic.js"></script>
+
+<script>
+    var samples=new Array(
+		'-NUMBER',
+		'N.10',
+        'N10',
+		'N.7,2',
+        'N5.2',
+        'N$.8',
+        'N$>.8',
+
+		'-STRING',
+        'S30',
+        'S10',
+        'S30U',
+        'S30L',
+        'S30C',
+        'S30A',
+        'S5~REVA~[abc]{5}',
+        'S10~REAC~[a-z]{0,5}[0-9]{0,5}~REVA~[a-z]{5}[0-9]{5}',
+        'S10~REAC~[a-z]{1,10}~REVA~[a-z]{10}~RETY~[a-z]{1}',
+        'S10U~REAC~[a-zñ]{1,10}~REVA~[a-zñ]{10}~RETY~[a-zñ]{1}',
+        'S10~REAC~[a-zñ0-9]{1,10}~REVA~[a-zñ0-9]{10}~RETY~[a-zñ0-9]{1}',
+
+		'-DATE',
+        'Dl, d~ de ~F~ de ~Y',
+        'Dy:m:d',
+        'Dd-m-Y',
+        'D1',
+        'D1-',
+        'D2',
+        'D3',
+        'D4',
+
+		'-TIME',
+        'T1',
+        'T2',
+        'T2,',
+        'T~SON LAS ~H~ HORAS Y ~i~ MINUTOS~',
+        'Tg:i A',
+
+		'-PATTERN',
+        'P~IBAN ES~##-####-####-####-####',
+        'P~CODIGO POSTAL ~#####',
+        'P<<#~ EURO~<<##',
+        'P***-***',
+        'P<<-<<-##',
+        'P[[<<<]<<<-<<<]]',
+        'Paaa-AAA',
+        'Pâââ-ÂÂÂ',
+        'P<<-<<-<<',
+        'P[[<<<]<<<EUR<<<-<<<',
+        'P[[<<<]<<<-<<<',
+        'P[<<<]<<<-<<<',
+        'P<<<**<<<-<<<',
+
+        
+    );
+
+    var s='';
+    for(var x in samples){
+        var p=samples[x];
+		if(p[0]=='-'){
+			s+="<optgroup label='"+p.substring(1)+"'>";
+			continue;
+		}
+        s+="<option value='"+p+"'>"+p+"</option>";
+    }
+    document.getElementById('samples').innerHTML=s;
+
+    function init(){
+
+      // Crear onchange para todos los elementos del formulario
+      document.querySelectorAll('.param').forEach( function(el){
+
+        el.addEventListener('change',function(){
+          type=this.form.id.substring(this.form.id.length-1);
+          var p='';
+          this.form.querySelectorAll( '.param').forEach( function(el){
+              p+=el.value+'';
+          });
+          var pic  = type+p;
+          document.getElementById('SPAN_PICTURE_'+type).innerHTML = pic;
+          refreshPicture();
+        })
+
+      });
+
+
+      document.getElementById('samples').dispatchEvent(new Event('change'));
+
+      ////setTimeout("document.getElementById('field_'"+type+").dispatchEvent(new Event('focus'))",100);
+    }
+    function sampleChanged(p){
+        var type  = p[0];
+        var formu = 'formu_'+type;
+        document.getElementById( formu ).reset();
+
+        var d     = gobpic.getData(p);
+        for(var x in d){
+            var o=document.querySelector('#'+formu +' #'+ x);
+            if(o==null)continue;
+            o.value = d[x]||'';
+        }
+        document.getElementById('tab-'+type).checked=true; // selecciona el tab adecuado para el tipo de picture
+
+        setTimeout("document.getElementById('field_"+type+"').dispatchEvent(new Event('focus'))",100);
+        refreshPicture();
+    }
+
+/*
+    function init_theform(){
+        document.getElementById('formu').reset();
+        document.getElementById('samples').selectedIndex=0;
+        document.querySelectorAll('#theform .param').forEach( function(el){
+            el.addEventListener('change', refreshPicture );
+        });
+        document.getElementById('samples').dispatchEvent(new Event('change'));
+    }
+*/
+
+    function refreshPicture(){
+        var type  = document.getElementById('samples').value[0];
+        var formu = '#formu_'+type;
+        var p='';
+
+        document.querySelectorAll( formu+' .param').forEach( function(el){
+            if( el.getAttribute('tilde')!=undefined && el.value!='' ){
+                p+='~'+el.id+'~'+el.value+'';
+            }else{
+                p+=el.value+'';
+            }
+        });
+        var pic  = type+p;
+
+        document.getElementById('SPAN_PICTURE_'+type).innerHTML = pic;
+        document.getElementById('field_'+type).setAttribute('pic',pic);
+        refreshTestControls();
+    }
+    function refreshTestControls(){
+        
+        document.querySelectorAll('.form-control').forEach( function(el){
+
+            //document.getElementById('theform').parentNode.innerHTML += '';
+            el.innerHTML+='';   // quitar eventos previos
+
+
+            gobpic.init(el);
+            if( el.PIC==undefined )return;
+            if( el.PIC.TYPE==undefined )return;
+            if( el.PIC.TYPE=='D' ){
+console_log('refreshTestControls id=> '+el.id+'   type=> '+el.PIC.TYPE );                
+                el.addEventListener('blur',function(event){
+                    var e   = event || window.event;
+                    var o   = e.target;
+                    console_log('HTML onblur event: '+o.id+' val() => '+o.val() + ' isvalid=> '+o.isvalid() );
+                    document.getElementById( 'SPAN_VAL_'+o.PIC.TYPE ).innerHTML=o.val();
+                });
+                el.addEventListener('blur',function(event){
+                    console_log('changeeeee');
+                });
+            }else{
+console_log('refreshTestControls id=> '+el.id+'   type=> '+el.PIC.TYPE );
+                el.addEventListener('change',function(event){
+                    var e   = event || window.event;
+                    var o   = e.target;
+                    console_log('HTML onchange event: '+o.id+' val() => '+o.val() + ' isvalid=> '+o.isvalid() );
+                    document.getElementById( 'SPAN_VAL_'+o.PIC.TYPE ).innerHTML=o.val();
+                })
+            }
+
+        })
+    }
+    function show(what,type){
+        let o=document.getElementById('field_'+type);
+		let t=document.getElementById('SPAN_VAL_'+type);
+        switch(what){
+            case 'val':
+                t.innerText = o.val();
+                break;
+			case 'value':
+                t.innerText = o.value;
+                break;
+			case 'format':
+                t.innerText = o.format();
+                break;
+			case 'deformat':
+                t.innerText = o.deformat();
+                break;
+			case 'isvalid':
+                t.innerText = o.isvalid();
+                break;
+			case 'isempty':
+                t.innerText = o.isempty();
+                break;
+        }
+        
+    }
+    function console_log(s){
+        const e=document.getElementById('tainfo');
+        e.value=e.value+"\n"+s;
+        e.scrollTop = e.scrollHeight;        
+    }
+
+</script>
+
+</html>
