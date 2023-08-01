@@ -1,4 +1,4 @@
-## MsgSubmit
+## MsgSubmit 
 
 **[MsgSubmit] [>tag:Mode] [ | message_or_function [ | js_condition] ]**
 
@@ -6,7 +6,7 @@ Mostrar al usuario un mensaje de confirmación antes de realizar el submit de un
 
 ---
 
-#### Parámetros
+#### Parámetros 
 
 **message_or_function**: Mensaje a mostrar o función javascript (sin parámetros). En caso de función se muestra el valor de retorno de la misma.
 
