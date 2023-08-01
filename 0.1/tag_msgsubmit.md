@@ -1,4 +1,4 @@
-## MsgSubmit 1
+## MsgSubmit 
 
 **[MsgSubmit] [>tag:Mode] [ | message_or_function [ | js_condition] ]**
 
@@ -12,7 +12,6 @@ Mostrar al usuario un mensaje de confirmación antes de realizar el submit de un
 
 **js_condition**: Condición javascript a cumplir para que se muestre el mensaje.
 
-![1690904272538](image/tag_msgsubmit/1690904272538.png)
 
 ---
 
