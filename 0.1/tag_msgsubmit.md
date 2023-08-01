@@ -10,9 +10,8 @@ Mostrar al usuario un mensaje de confirmación antes de realizar el submit de un
 
 **message_or_function**: Mensaje a mostrar o función javascript (sin parámetros). En caso de función se muestra el valor de retorno de la misma.
 
-**js_condition**: Condición javascript a cumplir para que se muestre el mensaje. 
+**js_condition**: Condición javascript a cumplir para que se muestre el mensaje.
 
-![1690903863421](image/tag_msgsubmit/1690903863421.png)
 
 ---
 
