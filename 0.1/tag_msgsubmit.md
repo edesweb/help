@@ -1,4 +1,4 @@
-## MsgSubmit 
+## MsgSubmit 1
 
 **[MsgSubmit] [>tag:Mode] [ | message_or_function [ | js_condition] ]**
 
