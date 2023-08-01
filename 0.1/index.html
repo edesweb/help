@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" _href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/style.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" rel="stylesheet" title="light" disabled="">
+  <link href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" rel="stylesheet alternative" title="dark">
+ 
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // https://codesandbox.io/s/xv36w4695o
+    // https://github.com/adrien2p/medusa-extender/tree/main/docs
+    // https://github.com/HerbertHe/docsify-codeblock-iframe
+    window.$docsify = {
+      homepage: 'intro.md',
+      name: 'nombre',
+      nameLink: '/docs',
+      repo: 'docsifyjs/docsify',
+      relativePath: true,
+      fallbackLanguages: ['es', 'en'],
+      loadNavbar: true,
+
+      loadSidebar: true,
+      subMaxLevel: 2,
+		  sidebarDisplayLevel: 1,
+
+      
+
+      notFoundPage: {
+        '/': '_404.md',
+        '/en': 'en/_404.md',
+      },
+
+      themeColor: "#42b983",
+      _themeColor: '#793ef9',
+      defaultTheme: 'light | dark',
+
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        // Localization
+        placeholder: {
+          '/': 'Buscar...',
+          '/en/': 'Type to search',
+        },
+        // Localization
+        noData: {
+          '/': 'Sin coincidencias',
+          '/en/': 'No results',
+        },
+        // Headline depth, 1 - 6
+        depth: 2,
+        hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+        /*
+        // To avoid search index collision
+        // between multiple websites under the same domain
+        namespace: 'website-1',
+
+        // Use different indexes for path prefixes (namespaces).
+        // NOTE: Only works in 'auto' mode.
+        //
+        // When initialiazing an index, we look for the first path from the sidebar.
+        // If it matches the prefix from the list, we switch to the corresponding index.
+        pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
+
+        // You can provide a regexp to match prefixes. In this case,
+        // the matching substring will be used to identify the index
+        pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
+        */
+      },
+      share: {
+            reddit: true,
+            linkedin: true,
+            facebook: true,
+            twitter: true,
+            whatsapp: true,
+            telegram: true,
+      },
+
+
+      plugins: [
+        function editButton(hook, vm) {
+          $docsify.formatUpdated = '{YYYY}/{MM}/{DD} {HH}:{mm}';
+          hook.beforeEach(function (html) {
+
+            var url = 'http://localgoblin.com/docs/edithelp.php?f=' + escape(vm.compiler.contentBase+vm.route.file);
+            var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+            return (
+              html +
+              '\n----\n' +
+              'Last modified ' +
+              editHtml
+            );
+          });
+        },
+  ],
+
+  }
+  </script>
+  <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/main.min.js" type="text/javascript"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/index.min.js"></script>
+  <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
+  <script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true });</script>  
+  <script src="//cdn.jsdelivr.net/npm/codeblock-iframe@latest/dist/index.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-codeblock-iframe@latest/dist/index.min.js"></script>
+  
+  
+</body>
+</html>
