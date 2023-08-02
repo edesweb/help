@@ -1,4 +1,4 @@
-### PHPStart
+## PHPStart
 
 <div align="right">Server-side TAG</div>
 
@@ -8,7 +8,9 @@
 	...
 
 Código PHP a ejecutar en el inicio, antes de abrir la base de datos.
-Si se quiere acceder a base de datos hay que llamar a la función `eInclude( $_Sql );`
+
+
+Si se quiere acceder a base de datos hay que llamar a la función  " [eInclude](pf_einclude.md) ( [$_Sql](pv_sql.md) ); "
 
 #### Ejemplos
 
