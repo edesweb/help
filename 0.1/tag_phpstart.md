@@ -3,14 +3,9 @@
 <div align="right">Server-side TAG - Multiline</div>
 
 **[PHPStart]** [mode](tag_param_mode.md) [ [ | [edf,.../else](tag_param_edf_else.md) ] | [UNIQUE/Condition](tag_param_unique.md) ]
-
-    ...
-	Código PHP
-	...
-
+*... PHP code ...*
 
 Código PHP a ejecutar en el inicio, antes de abrir la base de datos.
-
 
 Si se quiere acceder a base de datos hay que llamar a la función  " [eInclude](pf_einclude.md) ( [$_Sql](pv_sql.md) ); "
 
