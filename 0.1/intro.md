@@ -1,5 +1,225 @@
 # INTRODUCCIÓNxxxx en GitHub
 
+| TAG       | OWNER    | FINISH   |
+| --------- | -------- | -------- |
+| CSSADD    |          |          |
+| FIELDS    |          |          |
+| TITLE     |          |          |
+| DBTABLE   |          |          |
+| ADDOPTION |          |          |
+| DBINDEX   |          |          |
+| ONCHANGE  |          |          |
+| JSEND     |          |          |
+| PHPINI    |          |          |
+| ADDCODE   |          |          |
+| DB        |          |          |
+| JSINI     |          |          |
+| DBORDER   |          |          |
+| NOTE      |          |          |
+| PDFVAR    |          |          |
+| DBSQL     |          |          |
+| RELATIONFIELDS|      |          |
+| DBSERIAL  |          |          |
+| WHERESELECT|         |          |
+| FORMACTION|          |          |
+| JSCHECK   |          |          |
+| DBLIMIT   |          |          |
+| PHPEND    |          |          |
+| ALIGN     |          |          |
+| PDFSAVEVAR|          |          |
+| SHOWFIELDS|          |          |
+| PHPSTART  |          |          |
+| CALLSRV   |          |          |
+| NOEDITFILLED |       |          |
+| DBINI     |          |          |
+| FORMAT    |          |          |
+| BUTTON    |          |          |
+| JSSELROW  |          |          |
+| SUBTITLE  |          |          |
+| THCOLSPAN |          |          |
+| WIDTH     |          |          |
+| DBEND     |          |          |
+| LOADINI   |          |          |
+| ADDBUTTON |          |          |
+| CC        |          |          |
+| FS        |          |          |
+| ASSIGN    |          |          |
+| COLSWIDTH |          |          |
+| TAB       |          |          |
+| CURSOR    |          |          |
+| DBRANGE   |          |          |
+| MAXREC    |          |          |
+| COLSOP    |          |          |
+| PDFCOL    |          |          |
+| NOSORT    |          |          |
+| UPLOADFILE|          |          |
+| P         |          |          |
+| EXPIRE    |          |          |
+| H         |          |          |
+| CHR       |          |          |
+| LOADSEL   |          |          |
+| DBADDFILTER|         |          |
+| PHPFORM   |          |          |
+| DEFAUX    |          |          |
+| PERSISTENTVAR|       |          |
+| AUTOMENU  |          |          |
+| TIPFORM   |          |          |
+| PDFWRAP   |          |          |
+| FC        |          |          |
+| FOOTTITLE |          |          |
+| SLIDECOL  |          |          |
+| NOBUTTON  |          |          |
+| NOTOOLS   |          |          |
+| WINTITLE  |          |          |
+| TOTALSROWS|          |          |
+| NOABORT   |          |          |
+| RADIO     |          |          |
+| SUBLIST   |          |          |
+| COLSCOLOR |          |          |
+| SELINFO   |          |          |
+| JSONCLICKROW |       |          |
+| NOEDIT    |          |          |
+| TIPTH     |          |          |
+| ROWCOLOR  |          |          |
+| I         |          |          |
+| NOSELECTROW |        |          |
+| MSGSUBMIT |          |          |
+| ONLOAD    |          |          |
+| HTMEND    |          |          |
+| EDITLIST  |          |          |
+| DELOPTION |          |          |
+| DBGATEWAYONE |       |          |
+| ADDTOOLS  |          |          |
+| REQFILTER |          |          |
+| HTMINI    |          |          |
+| Z         |          |          |
+| FORMCHECK |          |          |
+| FORMATTOTALS |       |          |
+| WINFORM   |          |          |
+| WINLIST   |          |          |
+| DBMEMO    |          |          |
+| FIXZONE   |          |          |
+| STATUSINFO|          |          |
+| FIELDBROWSER |       |          |
+| FORMWIDTHS|          |          |
+| WINCLOSE  |          |          |
+| DBADDSQL  |          |          |
+| FORUSERS  |          |          |
+| TITLEICON |          |          |
+| HTMHEAD   |          |          |
+| PDFINCLUDE|          |          |
+| DBSELREC  |          |          |
+| FORMBUTTONS |        |          |
+| LABEL     |          |          |
+| SELECTMULTIPLE |     |          |
+| JSONLOAD  |          |          |
+| PDFCOLSSHADE |       |          |
+| ADDOPTIONVALUE |     |          |
+| DBLOG     |          |          |
+| F         |          |          |
+| PDFTH     |          |          |
+| MSGANSWER |          |          |
+| TDSTYLE   |          |          |
+| FORMSTATIC|          |          |
+| PHPHEAD   |          |          |
+| RADIOLIST |          |          |
+| JSINCLUDE |          |          |
+| DBGATEWAY |          |          |
+| GREENBAR  |          |          |
+| JSHEAD    |          |          |
+| PRESERVERVAR |       |          |
+| STOP      |          |          |
+| SUBWIN    |          |          |
+| LOADPROCEDURE |      |          |
+| FORMPOSITION |       |          |
+| TIPTD     |          |          |
+| BCP       |          |          |
+| FIXZONETITLE |       |          |
+| CHECKLIST |          |          |
+| EDITMIRROR|          |          |
+| DEBUG     |          |          |
+| ROWSOP    |          |          |
+| DELFILTER |          |          |
+| LISTCHECKBOX |       |          |
+| DBINSERT  |          |          |
+| DBREAD    |          |          |
+| ENTER     |          |          |
+| MIRROR    |          |          |
+| OPTIONS   |          |          |
+| THREAD    |          |          |
+| DBGROUPBY |          |          |
+| FIELDSET  |          |          |
+| GRAPH     |          |          |
+| SETVAR    |          |          |
+| DCOLUMNAS |          |          |
+| EDITDEFAULT |        |          |
+| EXTFORM   |          |          |
+| MSGTIME   |          |          |
+| TITLE2    |          |          |
+| PHPNEXTPAGE |        |          |
+| RELATIONCOLFIELDS|   |          |
+| SHOWFILTER|          |          |
+| ADDICON   |          |          |
+| CHART     |          |          |
+| PDFCOLS   |          |          |
+| COLSOPPREFIX |       |          |
+| COUNT     |          |          |
+| CSS       |          |          |
+| EXIT      |          |          |
+| PLUGIN    |          |          |
+| SESSIONVAR|          |          |
+| SKIPTD    |          |          |
+| WINCLOSEESC |        |          |
+| CHARTCOL  |          |          |
+| CHARTGRID |          |          |
+| CLOCK     |          |          |
+| DBREADROW |          |          |
+| EXPRIRE   |          |          |
+| GROUPLABELS |        |          |
+| JSDIM     |          |          |
+| JSSELROWS |          |          |
+| NOTES     |          |          |
+| PDFCOLBORDER |       |          |
+| PDFLABEL  |          |          |
+| PDFLIST   |          |          |
+| PHPHPSTART|          |          |
+| SELECTFILL|          |          |
+| SORTLIST  |          |          |
+| TIPTHTOP  |          |          |
+| TXTLOG    |          |          |
+| [DBTABLE  |          |          |
+| A         |          |          |
+| ACCESSFIELDS |       |          |
+| ALING     |          |          |
+| ASIGN     |          |          |
+| CLOSED    |          |          |
+| DBCHILD   |          |          |
+| DBPARENT  |          |          |
+| DBRLOCK   |          |          |
+| DBTABLERELATION|     |          |
+| DEFAULTVAL|          |          |
+| DTABLA    |          |          |
+| FORMAT--  |          |          |
+| HELP      |          |          |
+| IPHP      |          |          |
+| JUMP      |          |          |
+| LANGUAGE  |          |          |
+| NOSELECTFILL |       |          |
+| NOTA      |          |          |
+| PDFBREAKPAGE|        |          |
+| PHP       |          |          |
+| PHPSESSION|          |          |
+| PRESERVEVAR|         |          |
+| PROGRESS  |          |          |
+| RELACION  |          |          |
+| SG        |          |          |
+| SUBLISTDF |          |          |
+| TEMPLATE  |          |          |
+| THCOLSSPAN|          |          |
+| TOTALROWS |          |          |
+
+
+
 Es un framework a base de etiquetas (TAGS) para generar formularios de mantenimiento en bases de datos (CRUD).
 
 El framework es _Mobile First_, es decir, está enfocado para priorizar el diseño de formularios y listados en dispositivos móviles por encima de desktops.
