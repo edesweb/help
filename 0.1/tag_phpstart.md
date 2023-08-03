@@ -15,7 +15,7 @@ Si se quiere acceder a base de datos hay que llamar a la función  " [eInclude](
 ```
 [PHPStart] mR
 	if( $_SESSION['_User']!=44 ){
-		wMessage('No tiene permisos para modificar la ficha.');
+		eMessage('No tiene permisos para modificar la ficha.');
 	}
 ```
 
