@@ -1,21 +1,21 @@
-##Assign
+## Assign
 
 **[Assign]** [>tag:mode] [| FLD, FLD...., FLD ]
 
 Asigna los valores por defecto a los campos indicados.
 
-Esta etiqueta está ligada al valor por defecto indicado en el parámetro 8 ([>tag:field_def](DEF)) de la etiqueta [[>tag:fields](Fields)].
+Esta etiqueta está ligada al valor por defecto indicado en el parámetro 8 ([&gt;tag:field_def](DEF)) de la etiqueta [[&gt;tag:fields](Fields)].
 
 De forma predeterminada, el motor sólo asigna los valores por defecto en el modo alta (a).
 
-- - -
+---
 
 ####Parámetros
 
 **FLD**:
 	Lista de campos separados por coma de la etiqueta Fields.
 
-- - -
+---
 
 ####Ejemplos
 

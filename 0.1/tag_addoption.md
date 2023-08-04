@@ -1,25 +1,25 @@
-##AddOption
+## AddOption
 
-**[AddOption]** [>tag:mode] | Field | Options_List 
+**[AddOption]** [>tag:mode] | Field | Options_List
 
 En un campo tipo `<SELECT>` permite añadir más opciones `<option>` al principio de la lista.
 
-- - -
+---
 
 ####Parámetros
 
 **Field**:
-	Campo de la etiqueta [>tag:fields](Fields)
+	Campo de la etiqueta [&gt;tag:fields](Fields)
 
 **Options_List**:
 	Se puede utilizar tres tipos de parámetros:
     - Pares de datos separados por punto y coma `;` compuestos de un valor para el "option" y un texto a mostrar.`Valor1, Texto1; Valor2, Texto2; ...; ValorN, TextoN`  Si el "Valor" es una tilde `~` indica una  linea divisoria.
 
-	- El nombre de una función PHP. La función tiene que devolver una matriz bidimensional con el valor y el texto de las opciones.
-    
+    - El nombre de una función PHP. La función tiene que devolver una matriz bidimensional con el valor y el texto de las opciones.
+
     - Una sentencia SQL que devuelva dos datos, el valor y el texto de las opciones.
 
-- - -
+---
 
 ####Ejemplos
 

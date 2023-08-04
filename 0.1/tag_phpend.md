@@ -1,10 +1,9 @@
-##PHPEnd
+## PHPEnd
 
 **[PHPEnd]** [>tag:mode]
-	<br>...<br>Código PHP<br>...
+	`<br>`...`<br>`Código PHP`<br>`...
 
 Código PHP a ejecutar después de elaborar el formulario y el listado.
-
 
 ####Ejemplos
 
@@ -28,8 +27,7 @@ EOD;
 	}
 
 
-```	
+```
 
 Ver también:
-	[>tag:phpini](PHPIni)
-
+	[&gt;tag:phpini](PHPIni)

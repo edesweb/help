@@ -1,4 +1,4 @@
-##UploadFile
+## UploadFile
 
 **[UploadFile] field | folder | disk_filename [ | extensions [ | max_bytes [ | button_text [ | button_delete [ | button_cancel ] ] ] ] ]**
 
@@ -6,7 +6,8 @@ Complementa la información de un campo tipo "F" (file) para permitir al usuario
 
 Cuando el usuario selecciona un archivo automáticamente comienza el envío al servidor, mientras, el usuario puede seguir rellenando el formulario. Si el usuario pulsa el botón aceptar del formulario y la subida aún no se ha completado, se le informa con un aviso de la situación y no se le permite enviar el formulario hasta que la subida del archivo se haya completado. El archivo se almacena en una carpeta temporal en el servidor hasta que el usuario acepte el formulario o hasta que lo cancele.
 
-- - -
+---
+
 ####Parámetros
 
 **field**: Campo de la etiqueta Fields del tipo "F" (File).
@@ -15,7 +16,7 @@ Cuando el usuario selecciona un archivo automáticamente comienza el envío al s
 
 **disk_filename**: Nombre del archivo al guardarlo en disco, es decir, el nombre físico del archivo. Ver más abajo los posibles parámetros para disk_filename.
 
-**extensions**: Estensiones de archivo permitidas. Las extensiones se indican separadas por coma. Si no se indica se permite cualquier tipo de archivo. 
+**extensions**: Estensiones de archivo permitidas. Las extensiones se indican separadas por coma. Si no se indica se permite cualquier tipo de archivo.
 
 **max_bytes**: Tamaño máximo del archivo. Si no se indica no se limita el tamaño.
 
@@ -25,34 +26,28 @@ Cuando el usuario selecciona un archivo automáticamente comienza el envío al s
 
 **button_cancel**: Texto del botón para cancelar el envío del archivo. Por defecto: "cancelar".
 
-- - -
+---
 
 #####folder
 
 Existen una serie de posibles constantes que serán sustituídas por determinados valores.
 
 - [publicweb] o [folder_client] -> se sustituye por el valor devuelto por la función php getCliFolder.
-
 - [originals] o [folder_originals] -> se sustituye por el valor devuelto por la función php getCliFolderOriginals.
-
 - [thumbnails] o [folder_thumbnails] -> se sustituye por el valor devuelto por la función php getCliFolderThumbnails.
-
 - [adaptative] o [folder_adaptative] -> se sustituye por el valor devuelto por la función php getCliFolderAdaptatives.
-
-
 
 #####disk_filename
 
 Existen una serie de posibles constantes que serán sustituídas por determinados valores.
 
 - [serial] -> se sustotuye por el valor del campo [DBSerial] indicado en el edf.
-
 - [extension] o [ext] -> se sustituye por la extensión del archivo que se envía al servidor.
-
 
  
 
-- - -
+---
+
 ####Ejemplos
 
 ```

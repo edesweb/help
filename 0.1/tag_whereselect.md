@@ -1,19 +1,20 @@
-##WhereSelect
+## WhereSelect
 
 **[WhereSelect] [>tag:Mode] | field | sql_filter**
 
-Está relacionada con los campos tipo [>tag:field_ctl](Select) de la etiqueta [>tag:fields](Fields), se utiliza para añadir un filtro a los resultados.
+Está relacionada con los campos tipo [&gt;tag:field_ctl](Select) de la etiqueta [&gt;tag:fields](Fields), se utiliza para añadir un filtro a los resultados.
 
-Para una mejor comprensión ver la etiqueta [>tag:defaux]([DefAux])
+Para una mejor comprensión ver la etiqueta [&gt;tag:defaux]([DefAux])
 
-- - -
+---
+
 ####Parámetros
 
-**field**: Campo de la etiqueta Fields del tipo "S" ( [>tag:field_ctl](Select) ).
+**field**: Campo de la etiqueta Fields del tipo "S" ( [&gt;tag:field_ctl](Select) ).
 
 **sql_filter**: Filtro SQL a aplicar. Se pueden utilizar variables PHP encerradas entre corchetes.
 
-- - -
+---
 
 ####Ejemplos
 
@@ -28,6 +29,7 @@ Para una mejor comprensión ver la etiqueta [>tag:defaux]([DefAux])
 En el ejemplo tenemos un listado o una ficha de la tabla *personas*, esta tabla tiene un campo llamado *cd_pais_persona* en el cual deseamos grabar el código del país.
 
 Por otro lado disponemos de la tabla *paises*, esta tabla contiene dos campos:
+
 - cd_pais
 - nm_pais
 
@@ -37,12 +39,12 @@ En la etiqueta *DefAux* le estamos indicando que monte un desplegable con los da
 
 En la etiqueta *WhereSelect* indicamos que sólo queremos mostrar los países cuyo nombre comience por "a".
 
-Realmente lo que hace *WEPEDES* es montar la siguiente sentencia SQL para generar el tipo de control [>tag:field_ctl](Select):
+Realmente lo que hace *WEPEDES* es montar la siguiente sentencia SQL para generar el tipo de control [&gt;tag:field_ctl](Select):
 
-	SELECT cd_pais, nm_pais FROM paises WHERE nm_pais like 'a%' ORDER BY nm_pais
+    SELECT cd_pais, nm_pais FROM paises WHERE nm_pais like 'a%' ORDER BY nm_pais
 
+---
 
-- - -
 ```
 [DBTable] clientes
 [DefAux] cd_comercial | gs_user, cd_gs_user, user_name,' ',user_surname | user_name, user_surname
@@ -57,5 +59,4 @@ Además en *WhereSelect* indicamos que muestre todos los usuarios menos el usuar
 
 El SQL que montaría *WEPEDES* sería:
 
-	SELECT cd_gs_user, CONCAT(user_name,' ',user_surname) FROM gs_user WHERE cd_gs_user<>{$_SESSION['_User']} ORDER BY user_name, user_surname
-    
+    SELECT cd_gs_user, CONCAT(user_name,' ',user_surname) FROM gs_user WHERE cd_gs_user<>{$_SESSION['_User']} ORDER BY user_name, user_surname

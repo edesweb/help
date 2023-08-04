@@ -1,14 +1,13 @@
-##Format
+## Format
 
 **[Format]** [FormatCol1 [, FormatCol2] ... [, FormatColN] ] [ | utf8=''{E,D,blanco} [ | htmlentities=false ] ]
-<br>...<br>código php<br>...
-
+`<br>`...`<br>`código php`<br>`...
 
 En los listados da formato a los datos de cada columna.
 
 Todos los parámetros son opcionales.
 
-- - -
+---
 
 ####Parámetros
 
@@ -29,15 +28,13 @@ Si no se indica nada, se hará lo que esté establecido en la configuración de 
 
 **htmlentities**:
 	Si es *true* hará un *htmlentities* del dato.
-    
+
 Si no se indica nada se aplicará lo que contengan la variable *$GLOBALS['SETTINGS']['wepedes']['brwUTF8']*; si esta variable contiene un guión medio (-) se hará un *htmlentities* al dato.
-	
 
 **código php**:
 	Si introducimos código PHP este se ejecutará por cada registro leído, teniendo a nuestra disposición el array (zero based) **$_vF** para poder modificar el contenido del dato de cada columna.
-    
-    
-- - -
+
+---
 
 ####Ejemplos
 
@@ -60,9 +57,10 @@ Si no se indica nada se aplicará lo que contengan la variable *$GLOBALS['SETTIN
     }else{
     	$_vF[1] = 'NO';
     }
-	
+
 
 ```
+
 ```
 Ejemplo de cómo añadir un icono de acción en la primera columna:
 [Format]
@@ -75,5 +73,4 @@ Ejemplo de cómo añadir un icono de acción en la primera columna:
 ```
 
 Ver también:
-	[>tag:formatheader](FormatHeader)
-   
+	[&gt;tag:formatheader](FormatHeader)

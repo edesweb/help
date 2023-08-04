@@ -1,10 +1,9 @@
-##PHPIni
+## PHPIni
 
 **[PHPIni]** [>tag:mode]
-	<br>...<br>Código PHP<br>...
+	`<br>`...`<br>`Código PHP`<br>`...
 
 Código PHP a ejecutar antes de *atacar* a la base de datos.
-
 
 ####Ejemplos
 
@@ -32,8 +31,7 @@ Código PHP a ejecutar antes de *atacar* a la base de datos.
 	}
 
 
-```	
+```
 
 Ver también:
-	[>tag:phpend](PHPEnd)
-
+	[&gt;tag:phpend](PHPEnd)

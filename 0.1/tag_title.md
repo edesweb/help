@@ -1,4 +1,4 @@
-##Title
+## Title
 
 **[Title] texto [ | phpFunction ]**
 
@@ -8,15 +8,15 @@ Se puede poner etiquetas HTML.
 
 En los modos *cR*, *mR*, *a*, *bR* añade la acción que se va a realizar si se pulsa el botón de grabación del formulario; si se desea forzar sólo el título simplemente le ponemos un igual *=* delante.
 
+---
 
-- - -
 ####Parámetros
 
 **texto**: Título de la ficha o listado
 
 **phpFunction**: Función que devuelve el texto del título
 
-- - -
+---
 
 **Ejemplos**
 

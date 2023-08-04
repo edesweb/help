@@ -1,19 +1,18 @@
-##CallSrv
+## CallSrv
 
 **[CallSrv]** call_srv_id
-<br>...<br>Código PHP<br>...
+`<br>`...`<br>`Código PHP`<br>`...
 
+Representa una porción de código PHP que se ejecuta mediante la función javascript **[&gt;tag:js_eCallSrv](eCallSrv)**.
 
-Representa una porción de código PHP que se ejecuta mediante la función javascript **[>tag:js_eCallSrv](eCallSrv)**.
-
-- - -
+---
 
 ####Parámetros
 
 **call_srv_id**:
 	Identificador de la porción de código PHP.
 
-- - -
+---
 
 ####Ejemplos
 

@@ -1,13 +1,13 @@
-##AddCode
+## AddCode
 
-**[AddCode]** [>tag:mode] | field | [PB:P:PA:B:I:A] | HTML 
+**[AddCode]** [>tag:mode] | field | [PB:P:PA:B:I:A] | HTML
 
 Añade código HTML antes(B), dentro(I) o después(A) de la definición del campo o
 antes del prompt(PB), sustituir el prompt(P) o después del prompt(PA).
 
-La utilización más frecuente es la inclusión de gráficos antes o después del campo, por ejemplo una lupa de búsqueda. 
+La utilización más frecuente es la inclusión de gráficos antes o después del campo, por ejemplo una lupa de búsqueda.
 
-- - -
+---
 
 ####Parámetros
 
@@ -26,7 +26,7 @@ La utilización más frecuente es la inclusión de gráficos antes o después de
 **HTML**:
 	Código HTML
 
-- - -
+---
 
 ####Ejemplos
 

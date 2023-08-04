@@ -1,4 +1,4 @@
-##AddButton
+## AddButton
 
 **[AddButton] [>tag:Mode] | label | title | jsonclick [| id [| css_style [| css_class [| for_scripts ]]]] **
 
@@ -6,7 +6,8 @@ Añade un botón al formulario.
 
 Cada botón tiene "id" único "AddButton[NºBoton]"
 
-- - -
+---
+
 ####Parámetros
 
 **label**:
@@ -25,6 +26,7 @@ Cada botón tiene "id" único "AddButton[NºBoton]"
 	Estilo CSS a aplicar al botón.
 
 Se admiten los siguientes textos para ubicar el botón:
+
 - &left
 - &center
 - &right
@@ -33,16 +35,14 @@ Se admiten los siguientes textos para ubicar el botón:
 **css_class**:
 	Clase/s CSS a aplicar al botón.
 
-
 El contenido HTML del botón se almacena en uno de los siguientes arrays en función de su ubicación:
 	- _BUTTONS_LEFT
 	- _BUTTONS_CENTER
 	- _BUTTONS_RIGHT
 	- _BUTTONS_TOP
 
+---
 
-
-- - -
 ####Ejemplos
 
 ```
